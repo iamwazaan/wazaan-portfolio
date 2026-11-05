@@ -226,11 +226,6 @@ export const credentials: Credential[] = [
       'AWS Knowledge Cloud Essentials Trained digital badge issued to Wazaan Wazeer',
     details: [{ label: 'Credential holder', value: 'Wazaan Wazeer' }],
   },
-  {
-    title: 'Microsoft Azure Fundamentals (AZ-900) Course',
-    kind: 'Course completion',
-    status: 'Course completed',
-  },
 ]
 
 export const skillGroups = [

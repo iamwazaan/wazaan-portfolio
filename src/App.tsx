@@ -74,7 +74,7 @@ function App() {
             </a>
             <a href="#experience">Experience</a>
             <a href="#credentials">
-              Credentials<sup>9</sup>
+              Credentials<sup>{credentials.length}</sup>
             </a>
             <a href="#contact">Contact</a>
           </nav>
