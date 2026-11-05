@@ -28,6 +28,17 @@ npm run lint
 npm run build
 ```
 
+## Cloudflare Pages deployment
+
+Wrangler is installed as a project dependency and configured in `wrangler.jsonc`.
+
+```bash
+npx wrangler login
+npm run deploy:pages
+```
+
+The deployment script builds the Vite application and publishes `dist` to the `wazaan-portfolio` Pages project from the `main` branch.
+
 ## Certificate assets
 
 Certificate PDFs and the AWS badge are stored in `public/certificates`. Optimized WebP previews live in `public/certificates/previews`.
