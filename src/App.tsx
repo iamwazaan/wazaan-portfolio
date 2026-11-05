@@ -327,14 +327,31 @@ function App() {
               </Reveal>
 
               <Reveal className="education-record" order={2}>
-                <h3>Training and education</h3>
-                <p>Active Tech Networks</p>
-                <ul className="ruled-list">
-                  <li>Diploma in Network Technology</li>
-                  <li>CCNA and CCNP networking studies</li>
-                  <li>Ethical Hacker preparatory training</li>
-                  <li>Linux Essential preparatory training</li>
-                </ul>
+                <h3>My education qualifications</h3>
+                <div className="education-list">
+                  <article className="education-entry">
+                    <div className="education-entry-heading">
+                      <h4>WP/HR/Veyangalla Muslim Maha Vidyalaya</h4>
+                      <p className="education-date num">2011–2022</p>
+                    </div>
+                    <ul className="ruled-list">
+                      <li>Ordinary Level (7A, 2B) – 2021 (2022)</li>
+                    </ul>
+                  </article>
+
+                  <article className="education-entry">
+                    <div className="education-entry-heading">
+                      <h4>ATN Campus</h4>
+                      <p className="education-date num">2024–2025</p>
+                    </div>
+                    <ul className="ruled-list">
+                      <li>Cisco Certified Network Associate (CCNA)</li>
+                      <li>Cisco Certified Network Professional (CCNP)</li>
+                      <li>Certified Ethical Hacker (CEH)</li>
+                      <li>Diploma in Network Engineering</li>
+                    </ul>
+                  </article>
+                </div>
               </Reveal>
             </div>
           </div>

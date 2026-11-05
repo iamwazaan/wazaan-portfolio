@@ -887,7 +887,7 @@ button[aria-disabled='true'] {
 }
 
 .record-organisation,
-.education-record > p {
+.education-date {
   margin-block-start: var(--space-xs);
   color: var(--color-muted);
 }
@@ -903,6 +903,44 @@ button[aria-disabled='true'] {
 
 .education-record {
   align-self: end;
+  min-width: 0;
+}
+
+.education-list {
+  display: grid;
+  gap: var(--space-xl);
+  margin-block-start: var(--space-xl);
+}
+
+.education-entry {
+  min-width: 0;
+}
+
+.education-entry-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+
+.education-entry h4 {
+  margin: 0;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.education-date {
+  flex: 0 0 auto;
+  margin: 0;
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
+.education-entry .ruled-list {
+  margin-block-start: var(--space-md);
 }
 
 .ruled-list {
@@ -1897,6 +1935,11 @@ button[aria-disabled='true'] {
 
   .nav-download svg {
     display: none;
+  }
+
+  .education-entry-heading {
+    flex-direction: column;
+    gap: var(--space-xs);
   }
 
   .technical-actions,
