@@ -867,13 +867,12 @@ button[aria-disabled='true'] {
 
 .experience-layout {
   display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  column-gap: var(--gap-columns);
-  row-gap: var(--space-2xl);
+  grid-template-columns: minmax(0, 1fr);
   margin-block-start: var(--space-3xl);
 }
 
 .experience-record {
+  width: min(100%, 56rem);
   padding: var(--space-xl);
 }
 
@@ -901,19 +900,22 @@ button[aria-disabled='true'] {
   line-height: 1.65;
 }
 
-.education-record {
-  align-self: end;
-  min-width: 0;
+.education-section {
+  padding-block: var(--section-gap-l);
+  background: color-mix(in oklch, var(--color-paper) 34%, transparent);
 }
 
-.education-list {
+.education-grid {
   display: grid;
-  gap: var(--space-xl);
-  margin-block-start: var(--space-xl);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: stretch;
+  gap: var(--gap-columns);
+  margin-block-start: var(--space-3xl);
 }
 
 .education-entry {
   min-width: 0;
+  padding: var(--space-xl);
 }
 
 .education-entry-heading {
@@ -923,13 +925,13 @@ button[aria-disabled='true'] {
   gap: var(--space-lg);
 }
 
-.education-entry h4 {
+.education-entry h3 {
   margin: 0;
   color: var(--color-ink);
-  font-family: var(--font-body);
-  font-size: var(--text-md);
-  font-weight: 600;
-  line-height: 1.45;
+  font-size: var(--text-title);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: var(--tracking-display);
 }
 
 .education-date {
@@ -940,7 +942,7 @@ button[aria-disabled='true'] {
 }
 
 .education-entry .ruled-list {
-  margin-block-start: var(--space-md);
+  margin-block-start: var(--space-xl);
 }
 
 .ruled-list {
@@ -1730,6 +1732,16 @@ button[aria-disabled='true'] {
   }
 }
 
+@media (max-width: 79.9375rem) {
+  .nav-inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
+
 @media (max-width: 64rem) {
   .nav-inner {
     grid-template-columns: minmax(0, 1fr) auto;
@@ -1754,6 +1766,7 @@ button[aria-disabled='true'] {
   .section-intro,
   .contact-heading,
   .technical-bottom,
+  .education-grid,
   .experience-layout,
   .contact-layout {
     grid-template-columns: minmax(0, 1fr);
@@ -1765,6 +1778,7 @@ button[aria-disabled='true'] {
   }
 
   .technical-bottom,
+  .education-grid,
   .experience-layout,
   .contact-layout {
     row-gap: var(--space-2xl);
@@ -1775,7 +1789,6 @@ button[aria-disabled='true'] {
     justify-self: stretch;
   }
 
-  .education-record,
   .references {
     align-self: start;
   }
