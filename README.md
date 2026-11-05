@@ -1,0 +1,68 @@
+# Wazaan Wazeer portfolio
+
+A responsive portfolio for Wazaan Wazeer, focused on network administration, security, systems, cloud training, hands-on lab work, and verifiable credentials.
+
+## Stack
+
+- React and TypeScript
+- Vite
+- Tailwind CSS
+- Lucide React
+- Lenis smooth scrolling
+- GSAP, ScrollTrigger, and `@gsap/react`
+- Source-owned React Bits adaptations for split text and magnetic CTAs
+
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+Vite serves the site at `http://localhost:5199`.
+
+## Quality checks
+
+```bash
+npm run lint
+npm run build
+```
+
+## Certificate assets
+
+Certificate PDFs and the AWS badge are stored in `public/certificates`. Optimized WebP previews live in `public/certificates/previews`.
+
+To regenerate previews, install Python, PyMuPDF, and Pillow, then run:
+
+```bash
+python scripts/render_certificates.py
+```
+
+The downloadable résumé is `public/Wazaan-Wazeer-CV.pdf`.
+
+## Hero media
+
+The scroll-scrubbed background uses the approved CloudFront video as its primary source. `public/hero.mp4` is the offline fallback and `public/hero-poster.jpg` is the first-frame poster generated from the supplied frame sequence.
+
+Up to 60 optimized canvas-cache frames are loaded adaptively (36 on phones and 48 on tablets). They can be regenerated from an EZGIF frame export with:
+
+```bash
+python scripts/prepare_hero_frames.py "path/to/ezgif-frames"
+```
+
+## Contact form delivery
+
+The “Email Wazaan” buttons open an accessible modal form. Form submissions are delivered through Formspree once an endpoint is configured.
+
+1. Sign in at [Formspree](https://formspree.io/) and create a new form.
+2. Set and verify `wazaanwazeer@gmail.com` as the recipient.
+3. Copy the endpoint URL, such as `https://formspree.io/f/xxxxxxxx`.
+4. Copy `.env.example` to `.env.local` and replace the example value:
+
+```text
+VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/xxxxxxxx
+```
+
+5. Restart `npm run dev`. For production, add the same environment variable to the hosting provider and rebuild the site.
+
+Without an endpoint, the form keeps a graceful fallback that opens the visitor’s email application with their message prefilled.
