@@ -1,10 +1,15 @@
 import {
+  BadgeCheck,
+  BriefcaseBusiness,
+  Camera,
   ChevronRight,
+  CodeXml,
   Download,
   Mail,
   MapPin,
   Network as NetworkIcon,
   Phone,
+  Play,
 } from 'lucide-react'
 import { useState } from 'react'
 import { CertificateModal } from './components/CertificateModal'
@@ -480,29 +485,50 @@ function App() {
                     href="https://linkedin.com/in/iamwazaan"
                     target="_blank"
                     rel="noreferrer"
+                    data-social="linkedin"
                   >
-                    LinkedIn
+                    <BriefcaseBusiness
+                      size={16}
+                      strokeWidth={1.7}
+                      aria-hidden="true"
+                    />
+                    <span>LinkedIn</span>
                   </a>
                   <a
                     href="https://github.com/iamwazaan"
                     target="_blank"
                     rel="noreferrer"
+                    data-social="github"
                   >
-                    GitHub
+                    <CodeXml size={16} strokeWidth={1.7} aria-hidden="true" />
+                    <span>GitHub</span>
                   </a>
                   <a
                     href="https://instagram.com/iamwazaan"
                     target="_blank"
                     rel="noreferrer"
+                    data-social="instagram"
                   >
-                    Instagram
+                    <Camera size={16} strokeWidth={1.7} aria-hidden="true" />
+                    <span>Instagram</span>
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@iamwazaan"
+                    target="_blank"
+                    rel="noreferrer"
+                    data-social="youtube"
+                  >
+                    <Play size={17} strokeWidth={1.7} aria-hidden="true" />
+                    <span>YouTube</span>
                   </a>
                   <a
                     href="https://www.credly.com/users/iamwazaan"
                     target="_blank"
                     rel="noreferrer"
+                    data-social="credly"
                   >
-                    Credly
+                    <BadgeCheck size={17} strokeWidth={1.7} aria-hidden="true" />
+                    <span>Credly</span>
                   </a>
                 </div>
               </Reveal>
