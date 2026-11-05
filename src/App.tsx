@@ -433,7 +433,7 @@ function App() {
         <section id="contact" className="section contact-section">
           <div className="container">
             <Reveal as="header" className="contact-heading" order={0}>
-              <h2>Dharga Town. Open to network roles.</h2>
+              <h2>Open to network roles.</h2>
               <p>
                 Contact Wazaan directly for Network Administrator and Network
                 Security Administrator opportunities.
