@@ -52,7 +52,9 @@ python scripts/prepare_hero_frames.py "path/to/ezgif-frames"
 
 ## Contact form delivery
 
-The “Email Wazaan” buttons open an accessible modal form. Form submissions are delivered through Formspree once an endpoint is configured.
+The “Email Wazaan” buttons open an accessible modal form. Production builds use the public Formspree endpoint configured in `.env.production`, so submissions are delivered directly to Wazaan’s inbox.
+
+To use a different Formspree form locally:
 
 1. Sign in at [Formspree](https://formspree.io/) and create a new form.
 2. Set and verify `wazaanwazeer@gmail.com` as the recipient.
@@ -63,6 +65,6 @@ The “Email Wazaan” buttons open an accessible modal form. Form submissions a
 VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/xxxxxxxx
 ```
 
-5. Restart `npm run dev`. For production, add the same environment variable to the hosting provider and rebuild the site.
+5. Restart `npm run dev`. A hosting-provider environment variable with the same name can override `.env.production` during deployment.
 
 Without an endpoint, the form keeps a graceful fallback that opens the visitor’s email application with their message prefilled.
