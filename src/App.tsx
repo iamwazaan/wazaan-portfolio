@@ -212,15 +212,6 @@ function App() {
                         />
                       </a>
                     </Magnet>
-                    <Magnet padding={44} strength={5} maxOffset={8}>
-                      <button
-                        type="button"
-                        className="button button-secondary"
-                        onClick={() => setContactOpen(true)}
-                      >
-                        Email Wazaan
-                      </button>
-                    </Magnet>
                   </div>
                 </Reveal>
 
