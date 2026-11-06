@@ -130,17 +130,10 @@ function App() {
                   />
                   <SplitText
                     className="hero-title-line hero-title-role"
-                    text="Network"
+                    text="/ Network Administrator"
                     tag="span"
                     trigger="load"
                     startDelay={0.24}
-                  />
-                  <SplitText
-                    className="hero-title-line hero-title-role"
-                    text="Administrator."
-                    tag="span"
-                    trigger="load"
-                    startDelay={0.38}
                   />
                 </h1>
               </div>
@@ -150,13 +143,13 @@ function App() {
                   <img
                     className="hero-portrait"
                     src={portraitUrl}
-                    alt="Wazaan, Network & Security Engineer"
+                    alt="Wazaan, Network Administrator"
                     width="80"
                     height="96"
                   />
                   <div>
                     <h2>Get in touch with Wazaan</h2>
-                    <p>Network and security engineer</p>
+                    <p>Network Administrator</p>
                     <Magnet padding={40} strength={5} maxOffset={7}>
                       <button
                         type="button"
@@ -248,7 +241,10 @@ function App() {
             <div className="container">
               <Reveal as="header" className="section-intro" order={0}>
                 <h2>BGP to Metasploit.</h2>
-                <p>Current and legacy CV skills.</p>
+                <p>
+                  Technical skills across networking, systems, cloud and
+                  security.
+                </p>
               </Reveal>
 
               <dl className="skills-index glass-panel">
