@@ -148,7 +148,7 @@ function App() {
                     height="96"
                   />
                   <div>
-                    <h2>Get in touch</h2>
+                    <h2>Get in touch with Wazaan</h2>
                     <p>Network Administrator</p>
                     <Magnet padding={40} strength={5} maxOffset={7}>
                       <button
