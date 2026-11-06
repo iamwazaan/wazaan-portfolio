@@ -201,19 +201,81 @@ button[aria-disabled='true'] {
   display: inline-flex;
   align-items: center;
   justify-self: start;
-  gap: var(--space-xs);
+  gap: 0.625rem;
   color: var(--color-ink);
-  font-size: var(--text-lg);
   text-decoration: none;
   white-space: nowrap;
+  transition:
+    color var(--dur-short) var(--ease-out),
+    transform var(--dur-micro) var(--ease-out);
 }
 
-.brand span {
+.brand-mark {
+  width: 2rem;
+  height: auto;
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+.brand-mark-route {
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  vector-effect: non-scaling-stroke;
+  transition:
+    opacity var(--dur-short) var(--ease-out),
+    transform var(--dur-long) var(--ease-out);
+}
+
+.brand-mark-route-back {
+  opacity: 0.48;
+  transform-origin: center;
+}
+
+.brand-mark-terminals {
+  fill: var(--color-paper);
+  stroke: currentColor;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  transition: fill var(--dur-short) var(--ease-out);
+}
+
+.brand-wordmark {
+  display: grid;
+  gap: 0.12rem;
+  line-height: 0.8;
+}
+
+.brand-wordmark-name {
+  font-size: 1.08rem;
   letter-spacing: var(--tracking-display);
+}
+
+.brand-wordmark-surname {
+  color: var(--color-muted);
+  font-size: 0.48rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  transition: color var(--dur-short) var(--ease-out);
 }
 
 .brand:hover {
   color: var(--color-accent);
+}
+
+.brand:hover .brand-mark-route-back {
+  opacity: 0.78;
+  transform: translateX(0.7px);
+}
+
+.brand:hover .brand-mark-terminals {
+  fill: currentColor;
+}
+
+.brand:hover .brand-wordmark-surname {
+  color: var(--color-ink-2);
 }
 
 .brand:active {
@@ -2023,6 +2085,12 @@ button[aria-disabled='true'] {
   .contact-form-actions,
   .contact-form-actions .button {
     width: 100%;
+  }
+}
+
+@media (max-width: 25rem) {
+  .site-nav .brand-wordmark {
+    display: none;
   }
 }
 

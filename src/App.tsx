@@ -7,11 +7,11 @@ import {
   Download,
   Mail,
   MapPin,
-  Network as NetworkIcon,
   Phone,
   Play,
 } from "lucide-react";
 import { useState } from "react";
+import { BrandLogo } from "./components/BrandLogo";
 import { CertificateModal } from "./components/CertificateModal";
 import { ContactModal } from "./components/ContactModal";
 import { HeroVideoBackdrop } from "./components/HeroVideoBackdrop";
@@ -57,9 +57,12 @@ function App() {
 
       <header className="site-nav">
         <div className="container nav-inner">
-          <a className="brand" href="#profile" aria-label="Wazaan home">
-            <NetworkIcon size={24} strokeWidth={1.5} aria-hidden="true" />
-            <span className="font-recepts">wazaan</span>
+          <a
+            className="brand"
+            href="#profile"
+            aria-label="Wazaan Wazeer, home"
+          >
+            <BrandLogo />
           </a>
 
           <nav className="nav-links" aria-label="Primary navigation">
@@ -590,10 +593,9 @@ function App() {
           <a
             className="brand"
             href="#profile"
-            aria-label="wazaan, back to the top"
+            aria-label="Wazaan Wazeer, back to the top"
           >
-            <NetworkIcon size={24} strokeWidth={1.5} aria-hidden="true" />
-            <span className="font-recepts">wazaan</span>
+            <BrandLogo />
           </a>
           <p>Network administration, security and cloud.</p>
         </div>
