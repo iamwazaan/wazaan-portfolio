@@ -55,7 +55,7 @@ The downloadable résumé is `public/Wazaan-Wazeer-CV.pdf`.
 
 The scroll-scrubbed background uses the approved CloudFront video as its desktop source. `public/hero.mp4` is the offline fallback and `public/hero-poster.jpg` is the first-frame poster generated from the supplied frame sequence. Touch devices use the local frame sequence directly, so iOS does not depend on autoplay or media seeking.
 
-Up to 60 optimized canvas-cache frames are loaded adaptively (36 on phones and 48 on tablets). Portrait phones render the complete 16:9 scene over a subtle moving fill instead of enlarging and center-cropping it. The frames can be regenerated from an EZGIF frame export with:
+Up to 60 optimized canvas-cache frames are loaded adaptively (36 on phones and 48 on tablets). Portrait phones render the complete 16:9 scene over a subtle ambient fill instead of enlarging and center-cropping it. The frames can be regenerated from an EZGIF frame export with:
 
 ```bash
 python scripts/prepare_hero_frames.py "path/to/ezgif-frames"

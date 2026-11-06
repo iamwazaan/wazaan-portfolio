@@ -58,6 +58,7 @@ export function HeroVideoBackdrop() {
     let width = 0
     let height = 0
     let frames: CachedFrame[] = []
+    let lastRenderedFrame: HTMLImageElement | null = null
 
     setHasVideoFrame(false)
     setHasFrameCache(false)
@@ -90,12 +91,6 @@ export function HeroVideoBackdrop() {
       context.clearRect(0, 0, width, height)
 
       if (framesOnly && height > width) {
-        context.fillStyle = '#b9cbd5'
-        context.fillRect(0, 0, width, height)
-        drawImageCover(image, 0.42)
-        context.fillStyle = 'rgba(8, 18, 24, 0.16)'
-        context.fillRect(0, 0, width, height)
-
         const scale = Math.min(
           width / image.naturalWidth,
           height / image.naturalHeight,
@@ -156,7 +151,11 @@ export function HeroVideoBackdrop() {
         : smoothed + (target - smoothed) * (framesOnly ? 0.2 : 0.12)
 
       if (frames.length) {
-        drawFrame(findClosestFrame(smoothed).image)
+        const frame = findClosestFrame(smoothed).image
+        if (frame !== lastRenderedFrame) {
+          drawFrame(frame)
+          lastRenderedFrame = frame
+        }
       } else if (videoReady && duration) {
         const nextTime = smoothed * Math.max(0, duration - 0.05)
         if (Math.abs(video.currentTime - nextTime) > 0.04) {
@@ -186,7 +185,7 @@ export function HeroVideoBackdrop() {
       const bounds = canvas.getBoundingClientRect()
       const nextWidth = Math.max(1, Math.round(bounds.width))
       const nextHeight = Math.max(1, Math.round(bounds.height))
-      const dpr = Math.min(window.devicePixelRatio || 1, framesOnly ? 1.5 : 2)
+      const dpr = Math.min(window.devicePixelRatio || 1, framesOnly ? 1 : 2)
       const bufferWidth = Math.round(nextWidth * dpr)
       const bufferHeight = Math.round(nextHeight * dpr)
 
@@ -202,7 +201,8 @@ export function HeroVideoBackdrop() {
       canvas.height = bufferHeight
       context.setTransform(dpr, 0, 0, dpr, 0, 0)
       context.imageSmoothingEnabled = true
-      context.imageSmoothingQuality = 'high'
+      context.imageSmoothingQuality = framesOnly ? 'medium' : 'high'
+      lastRenderedFrame = null
       requestFrame()
     }
 

@@ -135,7 +135,7 @@ button[aria-disabled='true'] {
 
 @media (orientation: portrait) {
   .hero-video-backdrop.is-frame-only .hero-video-ambient {
-    opacity: 0.42;
+    opacity: 0.6;
     transform: scale(1.04);
   }
 
