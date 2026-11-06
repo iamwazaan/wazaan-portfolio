@@ -326,15 +326,32 @@ function App() {
                   key={credential.title}
                 >
                   {credential.preview ? (
-                    <figure className="credential-preview">
-                      <img
-                        src={credential.preview}
-                        alt=""
-                        width="360"
-                        height="255"
-                        loading="lazy"
-                      />
-                    </figure>
+                    credential.document || credential.verificationUrl ? (
+                      <button
+                        type="button"
+                        className="credential-preview credential-preview-button"
+                        aria-label={`${credential.document ? "View certificate" : "View credential"}: ${credential.title}`}
+                        onClick={() => setSelectedCredential(credential)}
+                      >
+                        <img
+                          src={credential.preview}
+                          alt=""
+                          width="360"
+                          height="255"
+                          loading="lazy"
+                        />
+                      </button>
+                    ) : (
+                      <figure className="credential-preview">
+                        <img
+                          src={credential.preview}
+                          alt=""
+                          width="360"
+                          height="255"
+                          loading="lazy"
+                        />
+                      </figure>
+                    )
                   ) : null}
 
                   <div className="credential-copy">

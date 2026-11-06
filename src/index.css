@@ -1070,6 +1070,32 @@ button[aria-disabled='true'] {
   object-fit: contain;
 }
 
+.credential-preview-button {
+  padding: 0;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    transform var(--dur-short) var(--ease-out),
+    box-shadow var(--dur-short) var(--ease-out);
+}
+
+.credential-preview-button img {
+  transition: transform var(--dur-long) var(--ease-out);
+}
+
+.credential-preview-button:hover {
+  box-shadow: 0 12px 32px rgb(0 0 0 / 0.18);
+}
+
+.credential-preview-button:hover img {
+  transform: scale(1.025);
+}
+
+.credential-preview-button:active {
+  transform: scale(0.985);
+}
+
 .credential-typographic {
   padding: var(--space-md);
   background: var(--color-paper-2);
