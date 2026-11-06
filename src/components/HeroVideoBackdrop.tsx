@@ -71,7 +71,7 @@ export function HeroVideoBackdrop() {
       return Math.min(1, Math.max(0, window.scrollY / maximum))
     }
 
-    const drawImageCover = (image: HTMLImageElement, opacity = 1) => {
+    const drawImageCover = (image: HTMLImageElement) => {
       const scale = Math.max(
         width / image.naturalWidth,
         height / image.naturalHeight,
@@ -81,52 +81,11 @@ export function HeroVideoBackdrop() {
       const x = (width - drawWidth) / 2
       const y = (height - drawHeight) / 2
 
-      context.save()
-      context.globalAlpha = opacity
       context.drawImage(image, x, y, drawWidth, drawHeight)
-      context.restore()
     }
 
     const drawFrame = (image: HTMLImageElement) => {
       context.clearRect(0, 0, width, height)
-
-      if (framesOnly && height > width) {
-        const scale = Math.min(
-          width / image.naturalWidth,
-          height / image.naturalHeight,
-        )
-        const drawWidth = image.naturalWidth * scale
-        const drawHeight = image.naturalHeight * scale
-        const x = (width - drawWidth) / 2
-        const y = (height - drawHeight) / 2
-
-        context.drawImage(image, x, y, drawWidth, drawHeight)
-
-        const edgeFade = Math.min(56, drawHeight * 0.2)
-        const topFade = context.createLinearGradient(0, y, 0, y + edgeFade)
-        topFade.addColorStop(0, 'rgba(8, 18, 24, 0.44)')
-        topFade.addColorStop(1, 'rgba(8, 18, 24, 0)')
-        context.fillStyle = topFade
-        context.fillRect(x, y, drawWidth, edgeFade)
-
-        const bottomFade = context.createLinearGradient(
-          0,
-          y + drawHeight - edgeFade,
-          0,
-          y + drawHeight,
-        )
-        bottomFade.addColorStop(0, 'rgba(8, 18, 24, 0)')
-        bottomFade.addColorStop(1, 'rgba(8, 18, 24, 0.44)')
-        context.fillStyle = bottomFade
-        context.fillRect(
-          x,
-          y + drawHeight - edgeFade,
-          drawWidth,
-          edgeFade,
-        )
-        return
-      }
-
       drawImageCover(image)
     }
 
@@ -364,13 +323,6 @@ export function HeroVideoBackdrop() {
 
   return (
     <div className={backdropState} aria-hidden="true">
-      <img
-        className="hero-video-ambient"
-        src="/hero-poster.jpg"
-        alt=""
-        width="1920"
-        height="1080"
-      />
       <img
         className="hero-video-poster"
         src="/hero-poster.jpg"
