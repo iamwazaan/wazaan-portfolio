@@ -129,14 +129,14 @@ function App() {
                     startDelay={0.08}
                   />
                   <SplitText
-                    className="hero-title-line"
+                    className="hero-title-line hero-title-role"
                     text="Network"
                     tag="span"
                     trigger="load"
                     startDelay={0.24}
                   />
                   <SplitText
-                    className="hero-title-line"
+                    className="hero-title-line hero-title-role"
                     text="Administrator."
                     tag="span"
                     trigger="load"

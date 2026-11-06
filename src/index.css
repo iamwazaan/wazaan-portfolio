@@ -414,6 +414,13 @@ button[aria-disabled='true'] {
   white-space: nowrap;
 }
 
+.hero-title-role {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+
 .hero-title-line .split-word,
 .hero-title-line .split-char {
   display: inline-block;
