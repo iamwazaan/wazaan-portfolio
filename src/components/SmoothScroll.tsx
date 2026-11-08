@@ -6,20 +6,29 @@ import Lenis from 'lenis'
 gsap.registerPlugin(ScrollTrigger)
 
 export function SmoothScroll() {
-  const [reducedMotion, setReducedMotion] = useState(() =>
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+  const [useNativeScroll, setUseNativeScroll] = useState(() =>
+    Boolean(
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+        window.matchMedia('(hover: none) and (pointer: coarse)').matches,
+    ),
   )
 
   useEffect(() => {
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const updatePreference = () => setReducedMotion(motionQuery.matches)
+    const touchQuery = window.matchMedia('(hover: none) and (pointer: coarse)')
+    const updatePreference = () =>
+      setUseNativeScroll(motionQuery.matches || touchQuery.matches)
 
     motionQuery.addEventListener('change', updatePreference)
-    return () => motionQuery.removeEventListener('change', updatePreference)
+    touchQuery.addEventListener('change', updatePreference)
+    return () => {
+      motionQuery.removeEventListener('change', updatePreference)
+      touchQuery.removeEventListener('change', updatePreference)
+    }
   }, [])
 
   useEffect(() => {
-    if (reducedMotion) {
+    if (useNativeScroll) {
       ScrollTrigger.refresh()
       return
     }
@@ -51,7 +60,7 @@ export function SmoothScroll() {
       gsap.ticker.lagSmoothing(500, 33)
       lenis.destroy()
     }
-  }, [reducedMotion])
+  }, [useNativeScroll])
 
   return null
 }

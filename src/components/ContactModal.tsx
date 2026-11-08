@@ -156,6 +156,8 @@ export function ContactModal({
                 type="text"
                 name="name"
                 autoComplete="name"
+                autoCapitalize="words"
+                enterKeyHint="next"
                 maxLength={100}
                 required
               />
@@ -167,6 +169,10 @@ export function ContactModal({
                 type="email"
                 name="email"
                 autoComplete="email"
+                autoCapitalize="none"
+                autoCorrect="off"
+                enterKeyHint="next"
+                spellCheck={false}
                 maxLength={200}
                 required
               />
@@ -174,12 +180,24 @@ export function ContactModal({
 
             <label className="form-field">
               <span>Subject</span>
-              <input type="text" name="subject" maxLength={120} required />
+              <input
+                type="text"
+                name="subject"
+                autoCapitalize="sentences"
+                enterKeyHint="next"
+                maxLength={120}
+                required
+              />
             </label>
 
             <label className="form-field">
               <span>Message</span>
-              <textarea name="message" maxLength={3000} required />
+              <textarea
+                name="message"
+                autoCapitalize="sentences"
+                maxLength={3000}
+                required
+              />
             </label>
 
             <label className="honeypot" aria-hidden="true">
