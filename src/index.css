@@ -2131,7 +2131,8 @@ button[aria-disabled='true'] {
 
   .credential-actions a,
   .contact-primary address a,
-  .reference-list a {
+  .contact-primary address span,
+  .reference-list article > * {
     display: flex;
     align-items: center;
     min-height: 44px;
@@ -2205,6 +2206,11 @@ button[aria-disabled='true'] {
   .social-links {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .reference-list article {
+    gap: var(--space-2xs);
+    padding-block: var(--space-md);
   }
 
   .dialog-actions,
