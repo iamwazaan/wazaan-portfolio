@@ -1835,6 +1835,14 @@ button[aria-disabled='true'] {
   .credential-row::before {
     display: none;
   }
+
+  .credential-actions a,
+  .contact-primary address a,
+  .reference-list a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+  }
 }
 
 @media (max-width: 72rem) {
